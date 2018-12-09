@@ -1,0 +1,7 @@
+---
+
+- hosts: localhost
+  tasks:
+  - check_permit:
+      name: SAM
+      age: 14
