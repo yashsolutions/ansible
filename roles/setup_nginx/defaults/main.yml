@@ -1,3 +1,9 @@
 ---
 
 worker_count: 4
+homepage_path_Debian: /var/www/html/index.html
+homepage_path_RedHat: /usr/share/nginx/html/index.html
+
+homepage_path:
+  RedHat: /usr/share/nginx/html/index.html
+  Debian: /var/www/html/index.html

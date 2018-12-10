@@ -1,0 +1,40 @@
+---
+
+- name: install nginx using apt
+  apt:
+    name: nginx
+    update_cache: yes
+  when: ansible_pkg_mgr == "apt"
+
+- name: install nginx using yum
+  yum:
+    name: "{{ item }}"
+    update_cache: yes
+  when: ansible_pkg_mgr == "yum"
+  loop:
+  - epel-release
+  - nginx
+
+- name: add users
+  user:
+    name: "{{ item }}"
+  loop:
+  - ashish
+  - sam
+  - someone
+
+- debug: 
+    msg: "This is a worker count: {{ worker_count }}"
+
+- name: shows worker count
+  debug: var=worker_count
+
+- name: setup config file
+  template:
+    src: "nginx_{{ ansible_os_family }}.conf"
+    dest: /etc/nginx/nginx.conf
+
+- name: set the service and restart
+  service:
+    name: nginx
+    state: restarted

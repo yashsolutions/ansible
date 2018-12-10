@@ -1,0 +1,7 @@
+---
+
+- name: setup index.html
+  template:
+    src: index.html
+#   dest: "{{ vars['homepage_path_' + ansible_os_family] }}"
+    dest: "{{ homepage_path[ansible_os_family] }}"
