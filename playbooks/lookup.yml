@@ -1,0 +1,9 @@
+---
+
+- hosts: localhost
+  connection: local
+  tasks:
+  - shell: "echo {{ lookup('8ball', 'Are you okay?') }}"
+    register: response
+
+  - debug: var=response['stdout']
