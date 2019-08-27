@@ -1,5 +1,5 @@
-- name: Hello World!
-  hosts: all
+- name: aws-ec2-t1
+  hosts: localhost
  
   tasks:
  
